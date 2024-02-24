@@ -7,7 +7,7 @@ public class Main {
         Scanner scn = new Scanner(System.in);
 //        System.out.println("Welcome to math-calc");
         System.out.println("Welcome to math-calc\n1. Count Number of Factors\n2. Check for Prime Number\n3. Find Sum " +
-                "of first n Natural Numbers\n4. Find sum of first n whole Numbers\nChoose:");
+                "of first n Natural Numbers\n4. Find sum of first n whole Numbers\n5. Find Square root\nChoose:");
         int option = scn.nextInt();
         System.out.println("Enter your number: ");
         int number = scn.nextInt();
@@ -28,12 +28,16 @@ public class Main {
                 int wsum = sumOfFirstNWholeNumber(number);
                 System.out.println(wsum);
                 break;
+            case 5:
+                int sqrt = sqrt(number);
+                System.out.println(sqrt);
+                break;
         }
     }
 
     public static int countFactor(int number){
         int count = 0;
-        for(int i = 1; i <= Math.sqrt(number); i++){
+        for(int i = 1; i <= sqrt(number); i++){
             if(number % i == 0) { //Checking for i is factor or not
                 if (i == number / i) {
                     count += 1;
@@ -67,5 +71,15 @@ public class Main {
     public static int sumOfFirstNWholeNumber(int number){
         int sum = ((number-1)*number)/2;
         return sum;
+    }
+
+    public static int sqrt(int number){
+        int sqrt = 0;
+        int i = 1;
+        while(i*i <= number){
+            sqrt = i;
+            i++;
+        }
+        return sqrt;
     }
 }

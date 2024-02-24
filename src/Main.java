@@ -6,7 +6,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
 //        System.out.println("Welcome to math-calc");
-        System.out.println("Welcome to math-calc\n1. Count Number of Factors\n2. Check for Prime Number\n3. Find Sum of n Natural Numbers\nChoose:");
+        System.out.println("Welcome to math-calc\n1. Count Number of Factors\n2. Check for Prime Number\n3. Find Sum " +
+                "of first n Natural Numbers\n4. Find sum of first n whole Numbers\nChoose:");
         int option = scn.nextInt();
         System.out.println("Enter your number: ");
         int number = scn.nextInt();
@@ -20,8 +21,12 @@ public class Main {
                 System.out.println(checkPrime);
                 break;
             case 3:
-                int sum = sumOfNaturalNumber(number);
+                int sum = sumOfFirstNNaturalNumber(number);
                 System.out.println(sum);
+                break;
+            case 4:
+                int wsum = sumOfFirstNWholeNumber(number);
+                System.out.println(wsum);
                 break;
         }
     }
@@ -54,8 +59,13 @@ public class Main {
         return isPrime;
     }
 
-    public static int sumOfNaturalNumber(int number){
+    public static int sumOfFirstNNaturalNumber(int number){
         int sum = ((number+1)*number)/2;
+        return sum;
+    }
+
+    public static int sumOfFirstNWholeNumber(int number){
+        int sum = ((number-1)*number)/2;
         return sum;
     }
 }
